@@ -1,0 +1,17 @@
+{
+    "projects": [
+      {
+        "projectTitle": "Automated Employee Onboarding Crew",
+        "authorName": "Jane Doe",
+        "authorGithub": "janedoe",
+        "cohort": "Jan–Feb 2026",
+        "valueProposition": "Automates end-to-end onboarding workflows using a multi-agent CrewAI backend so HR teams can onboard new hires in hours instead of days.",
+        "targetMarket": "HR teams in fast-growing tech companies",
+        "heroImageUrl": "projects/jan26-onboarding-crew-jane-doe/hero.png",
+        "showcaseUrl": "projects/jan26-onboarding-crew-jane-doe/index.html",
+        "techStack": ["Next.js", "FastAPI", "CrewAI", "Postgres"],
+        "tags": ["multi-agent", "HR automation", "Agentic Architect"]
+      }
+    ]
+  }
+  

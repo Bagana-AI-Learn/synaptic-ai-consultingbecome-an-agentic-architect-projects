@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Become an Agentic Architect – Capstone Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #050816;
+      --card-bg: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.6);
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --transition-fast: 0.18s ease-out;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 55%);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+    }
+    h1 {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      letter-spacing: -0.04em;
+      font-weight: 650;
+    }
+    .subtitle {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+    .sub-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .sub-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sub-row span::before {
+      content: "●";
+      font-size: 6px;
+      color: var(--accent);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.25), transparent 55%), var(--card-bg);
+      border: 1px solid rgba(15,23,42,0.9);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      min-height: 320px;
+      cursor: pointer;
+      transform-origin: center;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+    .card:hover {
+      transform: translateY(-4px) translateZ(0) scale(1.01);
+      border-color: rgba(56,189,248,0.5);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.9);
+    }
+    .card-thumb {
+      position: relative;
+      padding: 14px 14px 0;
+    }
+    .thumb-frame {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(15,23,42,0.9);
+      background: radial-gradient(circle at top, #020617, #020617);
+      aspect-ratio: 16 / 9;
+      position: relative;
+      isolation: isolate;
+    }
+    .thumb-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.01);
+      transition: transform var(--transition-fast), filter var(--transition-fast), opacity var(--transition-fast);
+    }
+    .card:hover .thumb-frame img {
+      transform: scale(1.03);
+      filter: saturate(1.05);
+    }
+    .thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.85), transparent 40%);
+      opacity: 0.6;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+    .card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+    }
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .card-cohort {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+    .card-author {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    .card-author a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .card-author a:hover { text-decoration: underline; }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .tag {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.85);
+      color: var(--muted);
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56,189,248,0.35);
+      background: radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 60%);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pill-link span { font-size: 0.8rem; }
+    .pill-link:hover { border-color: rgba(56,189,248,0.7); }
+    .pill-link svg { width: 13px; height: 13px; }
+    .empty {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 640px) {
+      .page { padding: 24px 16px 32px; }
+      header { margin-bottom: 20px; }
+      .card { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="badge-row">
+        <span class="badge">Agentic Architect</span>
+        <span class="pill">Capstone Wall of Fame</span>
+      </div>
+      <h1>Become an Agentic Architect – Capstone Projects</h1>
+      <p class="subtitle">
+        Production-grade multi-agent AI applications built by engineers and technical leaders in Carmelo Iaria’s Maven course
+        “Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI”.
+      </p>
+      <div class="sub-row">
+        <span>Built with CrewAI, Cursor &amp; the AAMAD framework</span>
+        <span>6-week project-based cohorts on Maven</span>
+      </div>
+    </header>
+
+    <section id="gallery">
+      <div id="cards" class="gallery"></div>
+      <p id="empty" class="empty" style="display:none;">
+        No projects published yet. Check back after the next cohort ships their capstones.
+      </p>
+    </section>
+  </div>
+
+  <script>
+    async function loadProjects() {
+      try {
+        const res = await fetch('projects.json');
+        if (!res.ok) throw new Error('projects.json not found');
+        const data = await res.json();
+        return data.projects || [];
+      } catch (e) {
+        console.error(e);
+        return [];
+      }
+    }
+
+    function createCard(project) {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.onclick = () => {
+        if (project.showcaseUrl) {
+          window.open(project.showcaseUrl, '_blank', 'noopener');
+        }
+      };
+
+      const thumb = document.createElement('div');
+      thumb.className = 'card-thumb';
+      thumb.innerHTML = `
+        <div class="thumb-frame">
+          <img src="${project.heroImageUrl || ''}" alt="${project.projectTitle || 'Capstone project'}" loading="lazy" />
+          <div class="thumb-overlay"></div>
+        </div>
+      `;
+
+      const body = document.createElement('div');
+      body.className = 'card-body';
+
+      const titleRow = document.createElement('div');
+      titleRow.className = 'card-title-row';
+
+      const title = document.createElement('h2');
+      title.className = 'card-title';
+      title.textContent = project.projectTitle || 'Untitled Project';
+
+      const cohort = document.createElement('span');
+      cohort.className = 'card-cohort';
+      cohort.textContent = project.cohort || 'Cohort';
+
+      titleRow.appendChild(title);
+      titleRow.appendChild(cohort);
+
+      const author = document.createElement('p');
+      author.className = 'card-author';
+      if (project.authorGithub) {
+        author.innerHTML = `by <a href="https://github.com/${project.authorGithub}" target="_blank" rel="noopener">@${project.authorGithub}</a>`;
+      } else if (project.authorName) {
+        author.textContent = `by ${project.authorName}`;
+      }
+
+      const desc = document.createElement('p');
+      desc.className = 'card-desc';
+      desc.textContent = project.valueProposition || '';
+
+      const tagsRow = document.createElement('div');
+      tagsRow.className = 'tag-row';
+      (project.techStack || []).slice(0, 4).forEach(tag => {
+        const el = document.createElement('span');
+        el.className = 'tag';
+        el.textContent = tag;
+        tagsRow.appendChild(el);
+      });
+
+      const footer = document.createElement('div');
+      footer.className = 'footer-row';
+
+      const target = document.createElement('span');
+      target.textContent = project.targetMarket || '';
+
+      const link = document.createElement('a');
+      link.className = 'pill-link';
+      link.href = project.showcaseUrl || '#';
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.onclick = e => e.stopPropagation();
+      link.innerHTML = `
+        <span>View project</span>
+        <svg viewBox="0 0 20 20" fill="none">
+          <path d="M5 10h7.5M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `;
+
+      footer.appendChild(target);
+      footer.appendChild(link);
+
+      body.appendChild(titleRow);
+      body.appendChild(author);
+      body.appendChild(desc);
+      body.appendChild(tagsRow);
+      body.appendChild(footer);
+
+      card.appendChild(thumb);
+      card.appendChild(body);
+
+      return card;
+    }
+
+    (async function init() {
+      const container = document.getElementById('cards');
+      const empty = document.getElementById('empty');
+      const projects = await loadProjects();
+
+      if (!projects.length) {
+        empty.style.display = 'block';
+        return;
+      }
+
+      projects.forEach(p => container.appendChild(createCard(p)));
+    })();
+  </script>
+</body>
+</html>
