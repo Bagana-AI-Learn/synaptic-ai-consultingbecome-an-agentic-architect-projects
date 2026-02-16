@@ -11,6 +11,18 @@
         "showcaseUrl": "projects/jan26-onboarding-crew-jane-doe/index.html",
         "techStack": ["Next.js", "FastAPI", "CrewAI", "Postgres"],
         "tags": ["multi-agent", "HR automation", "Agentic Architect"]
+      },
+      {
+        "projectTitle": "CareSync AI",
+        "authorName": "Matt Burton",
+        "authorGithub": "savant01",
+        "cohort": "Feb 2026",
+        "valueProposition": "AI-powered platform for coordinating senior care across medical, financial, and legal domains — with multi-agent intelligence that turns family conversations into structured, actionable health data.",
+        "targetMarket": "Senior living facilities and family caregivers",
+        "heroImageUrl": "projects/feb26-caresync-ai-matt-burton/hero.png",
+        "showcaseUrl": "projects/feb26-caresync-ai-matt-burton/index.html",
+        "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "Prisma"],
+        "tags": ["multi-agent", "healthcare", "Agentic Architect", "capstone"]
       }
     ]
   }
