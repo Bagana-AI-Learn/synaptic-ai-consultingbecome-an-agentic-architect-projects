@@ -1,7 +1,7 @@
 # Become an Agentic Architect – Capstone Projects
 
 This repository hosts the public **Wall of Fame** for capstone projects built in Carmelo Iaria’s Maven course  
-[“Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI”][course]. Each card in the gallery links to a full showcase page with screenshots, architecture, and the multi‑agent crew design behind the app.[web:11][web:65]
+[“Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI”][course]. Each card in the gallery links to a full showcase page with screenshots, architecture, and the multi‑agent crew design behind the app.
 
 The site is published via GitHub Pages at:
 
@@ -14,7 +14,7 @@ The site is published via GitHub Pages at:
 ## What this repo contains
 
 - `index.html`  
-  The main gallery page (Wall of Fame) that lists all capstone projects and links to their showcases. It reads from `projects.json` to render cards client‑side.[web:34][web:75]
+  The main gallery page (Wall of Fame) that lists all capstone projects and links to their showcases. It reads from `projects.json` to render cards client‑side.
 
 - `projects.json`  
   A JSON file containing one entry per project, including title, author, cohort, hero image path, and link to the project’s showcase page.
@@ -29,3 +29,15 @@ The site is published via GitHub Pages at:
     screen-1.png
     screen-2.png
     ...
+  ```
+
+---
+
+## Contributing
+
+Students must:
+
+1. **Use the provided Cursor prompt** when building the capstone.
+2. **Add a unique `projects/<slug>/` folder** (e.g. `projects/jan26-onboarding-crew-jane-doe/`) with the showcase page and assets.
+3. **Append a valid JSON object to `projects.json`** so the project appears on the Wall of Fame.
+4. **Commit & push to `main`** to submit the project.
