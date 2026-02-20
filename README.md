@@ -5,7 +5,7 @@ This repository hosts the public **Wall of Fame** for capstone projects built in
 
 The site is published via GitHub Pages at:
 
-> https://synaptic-ai-consulting.github.io/become-an-agentic-architect-projects/index.html
+> https://bagana-ai-learn.github.io/synaptic-ai-consultingbecome-an-agentic-architect-projects/index.html
 
 [course]: https://maven.com/carmelo-iaria/mastering-mas-crewai
 
