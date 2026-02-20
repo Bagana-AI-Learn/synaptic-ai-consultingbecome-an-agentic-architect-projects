@@ -1,16 +1,16 @@
 {
     "projects": [
       {
-        "projectTitle": "CareSync AI",
-        "authorName": "Matt Burton",
-        "authorGithub": "savant01",
+        "projectTitle": "BAGANA AI",
+        "authorName": "Hansen Louisther",
+        "authorGithub": "louistherhansen",
         "cohort": "Feb 2026",
-        "valueProposition": "AI-powered platform for coordinating senior care across medical, financial, and legal domains — with multi-agent intelligence that turns family conversations into structured, actionable health data.",
-        "targetMarket": "Senior living facilities and family caregivers",
-        "heroImageUrl": "projects/feb26-caresync-ai-matt-burton/hero.png",
-        "showcaseUrl": "projects/feb26-caresync-ai-matt-burton/index.html",
-        "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "Prisma"],
-        "tags": ["multi-agent", "healthcare", "Agentic Architect", "capstone"]
+        "valueProposition": "AI-powered platform for KOL, influencer, and content creator agencies to manage content strategy at scale through integrated content planning, sentiment analysis, and market trend insights.",
+        "targetMarket": "Agency ops managers, content strategists, and campaign managers at KOL/influencer/content creator agencies",
+        "heroImageUrl": "projects/feb26-bagana-ai-louis-therhansen/hero.png",
+        "showcaseUrl": "projects/feb26-bagana-ai-louis-therhansen/index.html",
+        "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "TypeScript", "Tailwind CSS", "assistant-ui"],
+        "tags": ["multi-agent", "content-strategy", "Agentic Architect", "capstone", "AAMAD"]
       }
     ]
   }

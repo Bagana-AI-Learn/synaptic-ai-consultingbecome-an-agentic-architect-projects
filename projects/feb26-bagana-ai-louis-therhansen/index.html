@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BAGANA AI – Agentic Architect Capstone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      color: #f9fafb;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      margin: 0.3rem 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 0.75rem 0;
+      border: 1px solid #1f2937;
+    }
+    ul { padding-left: 1.2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #020617;
+    }
+    .meta {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 9px;
+      border: 1px solid #1f2937;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>BAGANA AI</h1>
+      <p class="meta">
+        Built by <strong>Louis Therhansen</strong> –
+        Capstone for "Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI".
+      </p>
+      <p>AI-powered platform for KOL, influencer, and content creator agencies to manage content strategy at scale through integrated content planning, sentiment analysis, and market trend insights.</p>
+      <img src="hero.png" alt="BAGANA AI — Content Strategy Platform Dashboard" />
+    </header>
+
+    <section>
+      <h2>Problem &amp; Target Users</h2>
+      <p>Agencies managing multiple KOLs/influencers struggle to coordinate content strategy, messaging, and performance at scale. Manual content planning, sentiment review, and trend tracking do not scale with talent roster size and campaign volume. Critical pain points include duplicated effort, inconsistent messaging, delayed insights, and reactive (not data-driven) campaign decisions.</p>
+      <p>BAGANA AI serves <strong>agency ops managers</strong>, <strong>content strategists</strong>, and <strong>campaign managers</strong> at KOL/influencer/content creator agencies (or in-house creator teams) managing 5+ creators or 10+ concurrent campaigns who need a single platform for strategy, planning, and insights.</p>
+    </section>
+
+    <section>
+      <h2>Solution Overview</h2>
+      <p>BAGANA AI is a multi-agent platform that integrates content planning, sentiment analysis, and market trend insights in one unified workflow. The platform enables agencies to create structured multi-talent content plans, optimize messaging and engagement, and deliver data-driven campaigns more efficiently without proportionally increasing manual workload.</p>
+      <p>The solution covers the full content strategy lifecycle: <strong>content planning</strong> (calendars, briefs, messaging aligned to campaigns), <strong>sentiment analysis</strong> (tone and sentiment inputs with risk/opportunity surfacing), and <strong>market trend insights</strong> (trend and market data to inform strategy and campaign alignment).</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Multi-talent Content Plans (F1)</strong> — Create and edit structured content plans (calendars, briefs) for multiple talents/campaigns with schema validation and versioning.</li>
+        <li><strong>Sentiment Analysis (F2)</strong> — Analyze content or briefs for sentiment/tone and surface results in a consistent format with configurable inputs.</li>
+        <li><strong>Market Trend Insights (F3)</strong> — Ingest and summarize relevant trend/market insights for use in content strategy with defined sources and rate limits.</li>
+        <li><strong>Integrated Workflow (F4)</strong> — Planning, sentiment, and trend outputs available in one unified workflow without manual copy-paste between tools.</li>
+        <li><strong>Messaging Optimization (F5)</strong> — Suggestions to optimize messaging and engagement based on sentiment and trend data (P1).</li>
+        <li><strong>Reporting &amp; Dashboards (F6)</strong> — Summaries and reports combining plan + sentiment + trends for stakeholders (P1).</li>
+        <li><strong>Modern Chat Interface</strong> — Production-grade AI chat experience using assistant-ui with streaming responses and conversation history.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Multi-agent AI Crew</h2>
+      <p>Three specialized CrewAI agents orchestrate content strategy workflows through a sequential crew. Each agent operates independently with no delegation, ensuring predictable and auditable results. Agents are configured via YAML for easy adjustment without code changes.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Role</th>
+            <th>Tools / Integrations</th>
+            <th>Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Content Planner</td>
+            <td>Content strategy and multi-talent plan author — produces and updates structured content plans (calendars, briefs, messaging) aligned to campaigns</td>
+            <td>File I/O, plan schema validation, calendar/brief loaders</td>
+            <td>POST /api/crew (plan_content task)</td>
+          </tr>
+          <tr>
+            <td>Sentiment Analyst</td>
+            <td>Sentiment and tone analyst for content and briefs — analyzes content/briefs for sentiment and tone; surfaces risks and opportunities</td>
+            <td>Sentiment APIs or models, file I/O, schema validation</td>
+            <td>POST /api/crew (analyze_sentiment task)</td>
+          </tr>
+          <tr>
+            <td>Trend Researcher</td>
+            <td>Market and trend researcher for content strategy — gathers and summarizes relevant market/trend insights for plans and briefs</td>
+            <td>Approved web/API tools with rate limits, file I/O</td>
+            <td>POST /api/crew (research_trends task)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Technical Architecture</h2>
+      <ul>
+        <li><strong>Frontend</strong> — Next.js 14.2.0 (App Router), React 18.3.x, TypeScript 5.x, Tailwind CSS 3.4.x, assistant-ui 0.12.x</li>
+        <li><strong>Backend</strong> — Python 3.12, CrewAI multi-agent framework, FastAPI (API layer), structured logging</li>
+        <li><strong>Data / storage</strong> — PostgreSQL (conversation history and session metadata), file-based storage for plans and artifacts</li>
+        <li><strong>Integrations</strong> — OpenRouter API (agent LLM), sentiment APIs, trend/data sources (configurable)</li>
+        <li><strong>Development Framework</strong> — AAMAD (AI-Assisted Multi-Agent Application Development) framework for context-driven development</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Deployment</h2>
+      <p>The entire platform runs via <code>docker compose up --build</code>, launching three containers: PostgreSQL (database), Next.js standalone (frontend on port 3000), and FastAPI/CrewAI (backend on port 8000). Designed for future cloud deployment on AWS or similar infrastructure. The system supports both interactive and batch workflows with streaming responses for improved UX.</p>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <p><strong>Main Dashboard</strong> — Central hub showing all features and navigation to content planning, sentiment analysis, and trend insights.</p>
+      <img src="screen-1.png" alt="BAGANA AI Dashboard showing feature overview and navigation" />
+
+      <p><strong>Chat Interface with CrewAI Integration</strong> — Production-grade AI chat using assistant-ui with streaming responses, conversation history, and campaign template form.</p>
+      <img src="screen-2.png" alt="Chat interface showing assistant-ui integration with CrewAI agents" />
+
+      <p><strong>Content Plans Page</strong> — Multi-talent content planning interface showing structured plans, calendars, and briefs aligned to campaigns.</p>
+      <img src="screen-3.png" alt="Content plans page showing multi-talent content planning interface" />
+
+      <p><strong>Sentiment Analysis Page</strong> — Sentiment and tone analysis interface with risk/opportunity surfacing for content and briefs.</p>
+      <img src="screen-4.png" alt="Sentiment analysis page showing tone and sentiment insights" />
+
+      <p><strong>Trend Insights Page</strong> — Market and trend research interface showing relevant insights for content strategy.</p>
+      <img src="screen-5.png" alt="Trend insights page showing market research and trend data" />
+    </section>
+
+    <section>
+      <h2>My Role &amp; Learnings as Agentic Architect</h2>
+      <ul>
+        <li>Designed a YAML-driven agent configuration system that separates agent definitions from application code, making it easy to adjust agent behavior without code changes — following AAMAD framework principles.</li>
+        <li>Built a sequential crew orchestration pattern ensuring deterministic, auditable builds with explicit context passing between tasks — critical for reproducible content strategy workflows.</li>
+        <li>Implemented a modern LLM interface using assistant-ui for production-grade AI chat experience with streaming responses and conversation persistence to PostgreSQL.</li>
+        <li>Containerized a full-stack multi-agent system (Next.js + FastAPI + PostgreSQL) with Docker Compose, including health checks and proper service dependencies.</li>
+        <li>Applied AAMAD framework methodology throughout development, creating comprehensive artifacts (PRD, SAD, build documentation) ensuring explainability and reproducibility.</li>
+        <li>Designed a unified workflow that eliminates manual copy-paste between tools, proving the value proposition of integrated content planning + sentiment + trend insights in one platform.</li>
+        <li>Learned to structure CrewAI agents with <code>allow_delegation=false</code> for predictable results while maintaining specialized agent roles for content planning, sentiment analysis, and trend research.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
